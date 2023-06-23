@@ -1,25 +1,36 @@
-import logo from './logo.svg';
+import Header from './components/Header/header'
+
+import Cards from './components/Cards/cards'
+import { vacationSpots } from './data';
+
 import './App.css';
+export default App;
 
 function App() {
+const vaca = vacationSpots.map(item => {
+return (
+  <Cards
+  key={item.idx}
+  
+  {...item}/>
+)
+})
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+         <Header />
+<section className='vacation-spots'>{vaca}</section>
     </div>
-  );
-}
+  )
 
-export default App;
+  }
+
+
+
+  // export default function BlogList(props) {
+  //   return (
+  //     props.data.map((val, idx) => {
+  //         return <BlogPost key={idx} {...val}></BlogPost>
+  //     })
+  //   )
+  // }
